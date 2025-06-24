@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.sophiaynovcampus.controller.MainController">
+
+    <top>
+        <HBox spacing="10" padding="10" style="-fx-background-color: #EEE;">
+            <Label text="Recherche :" />
+            <TextField fx:id="searchField" promptText="Titre du jeu..." HBox.hgrow="ALWAYS"/>
+            <Button text="Rechercher" onAction="#onSearch"/>
+            <Button text="Réinitialiser" onAction="#onResetSearch"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tableJeux" prefHeight="400" prefWidth="700">
+            <columns>
+                <TableColumn fx:id="colTitre" text="Titre" prefWidth="200"/>
+                <TableColumn fx:id="colEditeur" text="Éditeur" prefWidth="150"/>
+                <TableColumn fx:id="colDeveloppeur" text="Développeur" prefWidth="150"/>
+                <TableColumn fx:id="colAnnee" text="Année" prefWidth="80"/>
+                <TableColumn fx:id="colSupport" text="Support" prefWidth="100"/>
+                <TableColumn fx:id="colNote" text="Note Metacritic" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" padding="10" alignment="CENTER_RIGHT" style="-fx-background-color: #EEE;">
+            <Button text="Ajouter" onAction="#onAjouter"/>
+            <Button text="Modifier" onAction="#onModifier"/>
+            <Button text="Supprimer" onAction="#onSupprimer"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

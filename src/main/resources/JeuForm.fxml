@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml" fx:controller="com.sophiaynovcampus.controller.JeuFormController" hgap="10" vgap="10" style="-fx-padding: 20;">
+    <Label text="Titre:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <TextField fx:id="titreField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+    <Label text="Éditeur:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <TextField fx:id="editeurField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+    <Label text="Développeur:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <TextField fx:id="developpeurField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+    <Label text="Année de sortie:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    <TextField fx:id="anneeField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+    <Label text="Support:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+    <HBox spacing="5" GridPane.rowIndex="4" GridPane.columnIndex="1">
+        <ComboBox fx:id="supportCombo" HBox.hgrow="ALWAYS"/>
+        <Button text="+" onAction="#onAjouterSupport" />
+    </HBox>
+
+    <Label text="Note Metacritic:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+    <TextField fx:id="noteField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+    <Label text="Jaquette (URL ou chemin):" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+    <TextField fx:id="jaquetteField" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+    <HBox spacing="10" GridPane.rowIndex="7" GridPane.columnIndex="1" alignment="CENTER_RIGHT">
+        <Button text="Valider" onAction="#onValider"/>
+        <Button text="Annuler" onAction="#onAnnuler"/>
+    </HBox>
+</GridPane> 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml" fx:controller="com.sophiaynovcampus.controller.MainController" spacing="10" alignment="TOP_CENTER" style="-fx-padding: 20;">
+    <HBox spacing="10">
+        <TextField fx:id="searchField" promptText="Rechercher par titre..." />
+        <Button text="Rechercher" onAction="#onSearch" />
+    </HBox>
+    <TableView fx:id="tableJeux" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text="Titre" fx:id="colTitre" />
+            <TableColumn text="Éditeur" fx:id="colEditeur" />
+            <TableColumn text="Développeur" fx:id="colDeveloppeur" />
+            <TableColumn text="Année" fx:id="colAnnee" />
+            <TableColumn text="Support" fx:id="colSupport" />
+            <TableColumn text="Note" fx:id="colNote" />
+        </columns>
+    </TableView>
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Ajouter" onAction="#onAjouter" />
+        <Button text="Modifier" onAction="#onModifier" />
+        <Button text="Supprimer" onAction="#onSupprimer" />
+    </HBox>
+</VBox> 

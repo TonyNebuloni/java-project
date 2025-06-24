@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Connexion à SQLite -->
+        <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
+        <property name="hibernate.connection.url">jdbc:sqlite:./jeuxvideo.db</property>
+
+        <!-- Dialecte SQLite (custom car pas natif Hibernate) -->
+        <property name="hibernate.dialect">com.sophiaynovcampus.util.SQLiteDialect</property>
+
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <!-- Entités -->
+        <mapping class="com.sophiaynovcampus.model.JeuVideo"/>
+        <mapping class="com.sophiaynovcampus.model.Support"/>
+    </session-factory>
+</hibernate-configuration>
