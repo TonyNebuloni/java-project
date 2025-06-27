@@ -70,7 +70,7 @@ VideoGameCollection
 - Les paramètres Hibernate sont dans `src/main/resources/hibernate.cfg.xml`.
 
 ## Auteurs
-- Projet réalisé par [Ameslant Ugo,Tony Nebuloni] et collaborateurs dans le cadre d'un projet universitaire.
+- Projet réalisé par [Ameslant Ugo,Tony Nebuloni] 
 
 ## Licence
 Ce projet est open-source, licence à définir selon vos besoins. 
