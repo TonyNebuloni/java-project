@@ -14,6 +14,8 @@
             <TableColumn text="Année" fx:id="colAnnee" />
             <TableColumn text="Support" fx:id="colSupport" />
             <TableColumn text="Note" fx:id="colNote" />
+            <TableColumn text="Jaquette" fx:id="colJaquette" />
+
         </columns>
     </TableView>
     <HBox spacing="10" alignment="CENTER">
