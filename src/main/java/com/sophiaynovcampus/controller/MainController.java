@@ -40,7 +40,6 @@ public class MainController {
 
     @FXML
     public void initialize() {
-        // Liaison des colonnes (à compléter avec PropertyValueFactory si besoin)
         colTitre.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getTitre()));
         colEditeur.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getEditeur()));
         colDeveloppeur.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getDeveloppeur()));
@@ -96,7 +95,6 @@ public class MainController {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root));
             stage.showAndWait();
-            // Après fermeture du formulaire, on recharge la liste
             chargerJeux();
         } catch (Exception e) {
             e.printStackTrace();
@@ -117,13 +115,12 @@ public class MainController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/JeuForm.fxml"));
             Parent root = loader.load();
             JeuFormController controller = loader.getController();
-            controller.setJeuVideo(jeuSelectionne); // Pré-remplir le formulaire
+            controller.setJeuVideo(jeuSelectionne);
             Stage stage = new Stage();
             stage.setTitle("Modifier un jeu vidéo");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root));
             stage.showAndWait();
-            // Après fermeture du formulaire, on recharge la liste
             chargerJeux();
         } catch (Exception e) {
             e.printStackTrace();

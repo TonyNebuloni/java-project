@@ -11,7 +11,7 @@ public class JeuVideoDAO {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            session.merge(jeu);  // ✅ gère les deux cas
+            session.merge(jeu);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();

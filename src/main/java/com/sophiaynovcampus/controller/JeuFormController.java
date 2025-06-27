@@ -28,7 +28,6 @@ public class JeuFormController {
     @FXML
     public void initialize() {
         supportCombo.setItems(FXCollections.observableArrayList(supportDAO.findAll()));
-        // Ajout du listener pour la prévisualisation
         jaquetteField.textProperty().addListener((obs, oldVal, newVal) -> {
             updateJaquettePreview(newVal);
         });
@@ -79,12 +78,10 @@ public class JeuFormController {
             return;
         }
 
-        // ✅ Si jeuVideo est null, on crée un nouveau
         if (jeuVideo == null) {
             jeuVideo = new JeuVideo();
         }
 
-        // ✅ Mise à jour des champs
         jeuVideo.setTitre(titre);
         jeuVideo.setEditeur(editeurField.getText().trim());
         jeuVideo.setDeveloppeur(developpeurField.getText().trim());
@@ -93,7 +90,6 @@ public class JeuFormController {
         jeuVideo.setNoteMetacritic(note);
         jeuVideo.setJaquette(jaquetteField.getText().trim());
 
-        // ✅ Utiliser merge dans DAO (on le verra ensuite)
         jeuVideoDAO.save(jeuVideo);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION,
@@ -128,7 +124,6 @@ public class JeuFormController {
             if (!nom.isEmpty()) {
                 Support support = new Support(nom);
                 supportDAO.save(support);
-                // Rafraîchir la liste
                 supportCombo.setItems(FXCollections.observableArrayList(supportDAO.findAll()));
                 supportCombo.setValue(support);
             } else {
@@ -151,7 +146,7 @@ public class JeuFormController {
             }
             jaquettePreview.setImage(img);
         } catch (Exception e) {
-            jaquettePreview.setImage(null); // ou une image par défaut
+            jaquettePreview.setImage(null);
         }
     }
 } 

@@ -13,7 +13,6 @@ public class SQLiteDialect extends Dialect {
         registerColumnType(Types.BIGINT, "integer");
         registerColumnType(Types.VARCHAR, "text");
         registerColumnType(Types.BOOLEAN, "boolean");
-        // Ajoute d'autres mappings nécessaires ici
     }
 
     @Override
@@ -46,7 +45,7 @@ public class SQLiteDialect extends Dialect {
 
     @Override
     public boolean hasAlterTable() {
-        return false;  // SQLite ne supporte pas ALTER TABLE complet
+        return false;
     }
 
     @Override
@@ -54,5 +53,4 @@ public class SQLiteDialect extends Dialect {
         return false;
     }
 
-    // Selon ta version de Hibernate, d'autres méthodes peuvent être nécessaires
 }

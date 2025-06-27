@@ -10,7 +10,6 @@ public class HibernateUtil {
 
     private static SessionFactory buildSessionFactory() {
         try {
-            // Charger les propriétés personnalisées
             Properties props = new Properties();
             try (InputStream input = HibernateUtil.class.getClassLoader().getResourceAsStream("config.properties")) {
                 if (input != null) {
@@ -21,8 +20,7 @@ public class HibernateUtil {
             String jdbcUrl = "jdbc:sqlite:" + bddPath;
 
             Configuration configuration = new Configuration();
-            configuration.configure("hibernate.cfg.xml"); // charge le fichier de config
-            // Remplacer dynamiquement l'URL de connexion
+            configuration.configure("hibernate.cfg.xml");
             configuration.setProperty("hibernate.connection.url", jdbcUrl);
             return configuration.buildSessionFactory();
         } catch (Throwable ex) {
