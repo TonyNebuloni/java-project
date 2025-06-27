@@ -7,6 +7,8 @@ import com.sophiaynovcampus.model.Support;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class JeuFormController {
@@ -17,6 +19,7 @@ public class JeuFormController {
     @FXML private ComboBox<Support> supportCombo;
     @FXML private TextField noteField;
     @FXML private TextField jaquetteField;
+    @FXML private ImageView jaquettePreview;
 
     private JeuVideo jeuVideo;
     private final JeuVideoDAO jeuVideoDAO = new JeuVideoDAO();
@@ -25,6 +28,10 @@ public class JeuFormController {
     @FXML
     public void initialize() {
         supportCombo.setItems(FXCollections.observableArrayList(supportDAO.findAll()));
+        // Ajout du listener pour la prévisualisation
+        jaquetteField.textProperty().addListener((obs, oldVal, newVal) -> {
+            updateJaquettePreview(newVal);
+        });
     }
 
     public void setJeuVideo(JeuVideo jeu) {
@@ -115,5 +122,23 @@ public class JeuFormController {
                 showAlert("Le nom du support ne peut pas être vide.");
             }
         });
+    }
+
+    private void updateJaquettePreview(String path) {
+        if (path == null || path.trim().isEmpty()) {
+            jaquettePreview.setImage(null);
+            return;
+        }
+        try {
+            Image img;
+            if (path.startsWith("http")) {
+                img = new Image(path, true);
+            } else {
+                img = new Image("file:" + path, true);
+            }
+            jaquettePreview.setImage(img);
+        } catch (Exception e) {
+            jaquettePreview.setImage(null); // ou une image par défaut
+        }
     }
 } 
