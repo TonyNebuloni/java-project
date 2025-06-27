@@ -10,6 +10,10 @@ Ce projet est une application Java permettant de gérer une collection personnel
 - Stockage des données en base SQLite locale
 - Architecture claire (DAO, MVC/MVP)
 
+## Fonctionnalités bonus realisé
+-🧾 Export des données	Export de la collection au format CSV 
+-🖼️ Affichage avancé des jaquettes	Prévisualisation dynamique de la jaquette à l’ajout d’une URL ou d’un fichier local
+
 ## Technologies utilisées
 - **Java 11+**
 - **JavaFX** (FXML, SceneBuilder)
@@ -38,7 +42,7 @@ Ce projet est une application Java permettant de gérer une collection personnel
    ```
    ou exécuter le JAR généré dans `target/` :
    ```bash
-   java -jar target/VideoGameCollection-1.0-SNAPSHOT.jar
+   java -jar target/gestionnaire-jeux-video-1.0-SNAPSHOT.jar
    ```
 
 ## Structure du projet
@@ -70,7 +74,7 @@ VideoGameCollection
 - Les paramètres Hibernate sont dans `src/main/resources/hibernate.cfg.xml`.
 
 ## Auteurs
-- Projet réalisé par [Ameslant Ugo,Tony Nebuloni] 
+- Projet réalisé par [Ameslant Ugo,Tony Nebuloni,Celine,Viktor] 
 
 ## Licence
-Ce projet est open-source, licence à définir selon vos besoins. 
+Ce projet est open-source
