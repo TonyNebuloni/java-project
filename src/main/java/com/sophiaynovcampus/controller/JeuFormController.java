@@ -49,17 +49,18 @@ public class JeuFormController {
 
     @FXML
     private void onValider() {
-        // Validation simple
         String titre = titreField.getText().trim();
         if (titre.isEmpty()) {
             showAlert("Le titre est obligatoire.");
             return;
         }
+
         Support support = supportCombo.getValue();
         if (support == null) {
             showAlert("Le support est obligatoire.");
             return;
         }
+
         Integer annee = null;
         try {
             if (!anneeField.getText().trim().isEmpty())
@@ -68,6 +69,7 @@ public class JeuFormController {
             showAlert("L'année doit être un nombre entier.");
             return;
         }
+
         Integer note = null;
         try {
             if (!noteField.getText().trim().isEmpty())
@@ -76,18 +78,29 @@ public class JeuFormController {
             showAlert("La note doit être un nombre entier.");
             return;
         }
-        // Création et sauvegarde
-        JeuVideo jeu = new JeuVideo();
-        jeu.setTitre(titre);
-        jeu.setEditeur(editeurField.getText().trim());
-        jeu.setDeveloppeur(developpeurField.getText().trim());
-        jeu.setAnneeSortie(annee);
-        jeu.setSupport(support);
-        jeu.setNoteMetacritic(note);
-        jeu.setJaquette(jaquetteField.getText().trim());
-        jeuVideoDAO.save(jeu);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Jeu ajouté avec succès !", ButtonType.OK);
+
+        // ✅ Si jeuVideo est null, on crée un nouveau
+        if (jeuVideo == null) {
+            jeuVideo = new JeuVideo();
+        }
+
+        // ✅ Mise à jour des champs
+        jeuVideo.setTitre(titre);
+        jeuVideo.setEditeur(editeurField.getText().trim());
+        jeuVideo.setDeveloppeur(developpeurField.getText().trim());
+        jeuVideo.setAnneeSortie(annee);
+        jeuVideo.setSupport(support);
+        jeuVideo.setNoteMetacritic(note);
+        jeuVideo.setJaquette(jaquetteField.getText().trim());
+
+        // ✅ Utiliser merge dans DAO (on le verra ensuite)
+        jeuVideoDAO.save(jeuVideo);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION,
+                (this.jeuVideo.getId() != null ? "Jeu modifié" : "Jeu ajouté") + " avec succès !",
+                ButtonType.OK);
         alert.showAndWait();
+
         Stage stage = (Stage) titreField.getScene().getWindow();
         stage.close();
     }
