@@ -1,41 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-
-<BorderPane xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.sophiaynovcampus.controller.MainController">
-
-    <top>
-        <HBox spacing="10" padding="10" style="-fx-background-color: #EEE;">
-            <Label text="Recherche :" />
-            <TextField fx:id="searchField" promptText="Titre du jeu..." HBox.hgrow="ALWAYS"/>
-            <Button text="Rechercher" onAction="#onSearch"/>
-            <Button text="Réinitialiser" onAction="#onResetSearch"/>
-        </HBox>
-    </top>
-
-    <center>
-        <TableView fx:id="tableJeux" prefHeight="400" prefWidth="700">
-            <columns>
-                <TableColumn fx:id="colTitre" text="Titre" prefWidth="200"/>
-                <TableColumn fx:id="colEditeur" text="Éditeur" prefWidth="150"/>
-                <TableColumn fx:id="colDeveloppeur" text="Développeur" prefWidth="150"/>
-                <TableColumn fx:id="colAnnee" text="Année" prefWidth="80"/>
-                <TableColumn fx:id="colSupport" text="Support" prefWidth="100"/>
-                <TableColumn fx:id="colNote" text="Note Metacritic" prefWidth="100"/>
-            </columns>
-        </TableView>
-    </center>
-
-    <bottom>
-        <HBox spacing="10" padding="10" alignment="CENTER_RIGHT" style="-fx-background-color: #EEE;">
-            <Button text="Ajouter" onAction="#onAjouter"/>
-            <Button text="Modifier" onAction="#onModifier"/>
-            <Button text="Supprimer" onAction="#onSupprimer"/>
-            <Button text="Exporter" onAction="#onExporterCSV"/>
-        </HBox>
-    </bottom>
-
-</BorderPane>
+<VBox xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml" fx:controller="com.sophiaynovcampus.controller.MainController" spacing="10" alignment="TOP_CENTER" style="-fx-padding: 20;">
+    <HBox spacing="10">
+        <TextField fx:id="searchField" promptText="Rechercher par titre..." />
+        <Button text="Rechercher" onAction="#onSearch" />
+    </HBox>
+    <TableView fx:id="tableJeux" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text="Titre" fx:id="colTitre" />
+            <TableColumn text="Éditeur" fx:id="colEditeur" />
+            <TableColumn text="Développeur" fx:id="colDeveloppeur" />
+            <TableColumn text="Année" fx:id="colAnnee" />
+            <TableColumn text="Support" fx:id="colSupport" />
+            <TableColumn text="Note" fx:id="colNote" />
+            <TableColumn text="Jaquette" fx:id="colJaquette" />
+        </columns>
+    </TableView>
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Ajouter" onAction="#onAjouter" styleClass="button-add" />
+        <Button text="Modifier" onAction="#onModifier" styleClass="button-edit" />
+        <Button text="Supprimer" onAction="#onSupprimer" styleClass="button-delete" />
+        <Button text="Exporter" onAction="#onExporterCSV" styleClass="button-export"/>
+    </HBox>
+</VBox>

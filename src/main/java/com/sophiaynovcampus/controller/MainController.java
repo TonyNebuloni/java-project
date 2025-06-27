@@ -19,6 +19,9 @@ import java.util.Objects;
 import javafx.stage.FileChooser;
 import java.io.File;
 import java.io.FileWriter;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.control.TableCell;
 
 public class MainController {
     @FXML private TableView<JeuVideo> tableJeux;
@@ -28,6 +31,7 @@ public class MainController {
     @FXML private TableColumn<JeuVideo, Integer> colAnnee;
     @FXML private TableColumn<JeuVideo, String> colSupport;
     @FXML private TableColumn<JeuVideo, Integer> colNote;
+    @FXML private TableColumn<JeuVideo, String> colJaquette;
     @FXML private TextField searchField;
     @FXML private FlowPane cardsPane;
 
@@ -44,6 +48,33 @@ public class MainController {
         colSupport.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(
             data.getValue().getSupport() != null ? data.getValue().getSupport().getNom() : ""));
         colNote.setCellValueFactory(data -> new javafx.beans.property.SimpleObjectProperty<>(data.getValue().getNoteMetacritic()));
+        colJaquette.setCellFactory(column -> new TableCell<JeuVideo, String>() {
+            private final ImageView imageView = new ImageView();
+
+            {
+                imageView.setFitHeight(60);
+                imageView.setFitWidth(45);
+                imageView.setPreserveRatio(true);
+            }
+
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null || item.trim().isEmpty()) {
+                    setGraphic(null);
+                } else {
+                    Image img;
+                    if (item.startsWith("http")) {
+                        img = new Image(item, true);
+                    } else {
+                        img = new Image("file:" + item, true);
+                    }
+                    imageView.setImage(img);
+                    setGraphic(imageView);
+                }
+            }
+        });
+        colJaquette.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getJaquette()));
         chargerJeux();
     }
 

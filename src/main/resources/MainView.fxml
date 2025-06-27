@@ -14,12 +14,14 @@
             <TableColumn text="Année" fx:id="colAnnee" />
             <TableColumn text="Support" fx:id="colSupport" />
             <TableColumn text="Note" fx:id="colNote" />
+            <TableColumn text="Jaquette" fx:id="colJaquette" />
+
         </columns>
     </TableView>
     <HBox spacing="10" alignment="CENTER">
-        <Button text="Ajouter" onAction="#onAjouter" />
-        <Button text="Modifier" onAction="#onModifier" />
-        <Button text="Supprimer" onAction="#onSupprimer" />
-        <Button text="Exporter" onAction="#onExporterCSV"/>
+        <Button text="➕ Ajouter" onAction="#onAjouter" styleClass="button-add" />
+        <Button text="✏️Modifier" onAction="#onModifier" styleClass="button-edit" />
+        <Button text="🗑️Supprimer" onAction="#onSupprimer" styleClass="button-delete"/>
+        <Button text="📤 Exporter" onAction="#onExporterCSV" styleClass="button-export" />
     </HBox>
 </VBox> 

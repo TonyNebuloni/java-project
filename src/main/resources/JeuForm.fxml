@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
 <GridPane xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml" fx:controller="com.sophiaynovcampus.controller.JeuFormController" hgap="10" vgap="10" style="-fx-padding: 20;">
     <Label text="Titre:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
     <TextField fx:id="titreField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
@@ -25,6 +26,8 @@
 
     <Label text="Jaquette (URL ou chemin):" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
     <TextField fx:id="jaquetteField" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+    <ImageView fx:id="jaquettePreview" fitHeight="120" fitWidth="90" preserveRatio="true" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
 
     <HBox spacing="10" GridPane.rowIndex="7" GridPane.columnIndex="1" alignment="CENTER_RIGHT">
         <Button text="Valider" onAction="#onValider"/>
