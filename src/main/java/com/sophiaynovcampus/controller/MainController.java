@@ -16,6 +16,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
+import javafx.stage.FileChooser;
+import java.io.File;
+import java.io.FileWriter;
 
 public class MainController {
     @FXML private TableView<JeuVideo> tableJeux;
@@ -130,5 +133,37 @@ public class MainController {
             tableJeux.setItems(jeuxFiltres);
         }
         tableJeux.refresh();
+    }
+
+    @FXML
+    private void onExporterCSV() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Exporter la collection en CSV");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichier CSV", "*.csv"));
+        Stage stage = (Stage) tableJeux.getScene().getWindow();
+        java.io.File file = fileChooser.showSaveDialog(stage);
+        if (file != null) {
+            try (java.io.FileWriter writer = new java.io.FileWriter(file)) {
+                // En-tête CSV
+                writer.write("Titre;Editeur;Développeur;Année;Support;Note;Jaquette\n");
+                for (JeuVideo jeu : tableJeux.getItems()) {
+                    writer.write(String.format("%s;%s;%s;%s;%s;%s;%s\n",
+                        jeu.getTitre(),
+                        jeu.getEditeur(),
+                        jeu.getDeveloppeur(),
+                        jeu.getAnneeSortie() != null ? jeu.getAnneeSortie() : "",
+                        jeu.getSupport() != null ? jeu.getSupport().getNom() : "",
+                        jeu.getNoteMetacritic() != null ? jeu.getNoteMetacritic() : "",
+                        jeu.getJaquette() != null ? jeu.getJaquette() : ""
+                    ));
+                }
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Export CSV réussi !", ButtonType.OK);
+                alert.showAndWait();
+            } catch (Exception e) {
+                e.printStackTrace();
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Erreur lors de l'export : " + e.getMessage(), ButtonType.OK);
+                alert.showAndWait();
+            }
+        }
     }
 } 

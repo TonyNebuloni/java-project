@@ -20,5 +20,6 @@
         <Button text="Ajouter" onAction="#onAjouter" />
         <Button text="Modifier" onAction="#onModifier" />
         <Button text="Supprimer" onAction="#onSupprimer" />
+        <Button text="Exporter" onAction="#onExporterCSV"/>
     </HBox>
 </VBox> 
