@@ -1,0 +1,75 @@
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-background-color: #f4f4f4;
+}
+
+.label {
+    -fx-font-size: 14px;
+}
+
+.button {
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 6 18 6 18;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+    -fx-border-radius: 8;
+}
+
+.button-add {
+    -fx-background-color: #43b581;
+    -fx-text-fill: white;
+    -fx-border-color: #2e8b57;
+}
+
+.button-add:hover {
+    -fx-background-color: #2e8b57;
+}
+
+.button-edit {
+    -fx-background-color: #ffb347;
+    -fx-text-fill: #333;
+    -fx-border-color: #e69500;
+}
+
+.button-edit:hover {
+    -fx-background-color: #e69500;
+    -fx-text-fill: white;
+}
+
+.button-delete {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-border-color: #c0392b;
+}
+
+.button-delete:hover {
+    -fx-background-color: #c0392b;
+}
+
+.button-export {
+    -fx-background-color: #4F8EF7;
+    -fx-text-fill: white;
+    -fx-border-color: #357AE8;
+}
+
+.button-export:hover {
+    -fx-background-color: #357AE8;
+}
+
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #4F8EF7;
+    -fx-border-radius: 5;
+}
+
+.table-column {
+    -fx-alignment: CENTER_LEFT;
+}
+
+.text-field, .combo-box {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #4F8EF7;
+    -fx-background-color: #fff;
+}
