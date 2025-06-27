@@ -12,7 +12,7 @@ Ce projet est une application Java permettant de gérer une collection personnel
 
 ## Fonctionnalités bonus realisé
 
-- 🧾 Export des données	Export de la collection au format CSV \n
+- 🧾 Export des données	Export de la collection au format CSV 
 - 🖼️ Affichage avancé des jaquettes	Prévisualisation dynamique de la jaquette à l’ajout d’une URL ou d’un fichier local
 
 ## Technologies utilisées
